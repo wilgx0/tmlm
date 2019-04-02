@@ -1,4 +1,208 @@
-<div class="M_footer">
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\\index.html";i:1554027600;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554017331;}*/ ?>
+<!DOCTYPE html >
+<html lang="en" style="overflow: hidden; height: 100%;">
+
+<head>
+	<title><?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?></title>
+	<!--head s-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="renderer" content="webkit">
+
+
+<meta name="keywords" content="<?php echo (isset($site_info['site_seo_keywords']) && ($site_info['site_seo_keywords'] !== '')?$site_info['site_seo_keywords']:''); ?>" />
+<meta name="description" content="<?php echo (isset($site_info['site_seo_description']) && ($site_info['site_seo_description'] !== '')?$site_info['site_seo_description']:''); ?>">
+
+
+<link rel="shortcut icon" href="/static/yili/images/favicon.ico">
+<link type="text/css" rel="stylesheet" href="/static/yili/css/style.css">
+<link type="text/css" rel="stylesheet" href="/static/yili/css/jquery.mCustomScrollbar.css">
+
+<link type="text/css" rel="stylesheet" href="/static/yili/css/jquery.fullpage.css">
+<link rel="stylesheet" href="/static/yili/css/share_style0_16.css">
+
+<script>
+    var STATIC = "/static";
+</script>
+
+<script async="" src="/static/yili/js/analytics.js"></script>
+<script src="/static/yili/js/hm.js"></script>
+<script async="" src="/static/yili/js/gtm.js"></script>
+
+<script>
+    var static_path = "/cms/resources/reception/";
+    var video_path = "http://yiliimg.ttge.com/upload/";
+    var categoryId = '1' || 0;
+</script>
+<script type="text/javascript" src="/static/yili/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/static/yili/js/jquery.mCustomScrollbar.js"></script>
+<script src="/static/yili/js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="/static/yili/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="/static/yili/js/myfocus.js"></script>
+<script type="text/javascript" src="/static/yili/js/common.js"></script>
+<script src="/static/yili/js/share.js"></script>
+<style>
+    .main{
+        width:100%;
+       clear:both;
+    }
+</style>
+	<!--head e-->
+	<link type="text/css" rel="stylesheet" href="/static/yili/css/swiper-3.4.2.min.css">
+	<script src="/static/yili/js/swiper-3.4.2.min.js"></script>
+
+	<style>
+		.H_wrapper{
+			min-width: 100%;
+			max-width: 100%;
+			position:relative;
+		}
+
+		.swiper-container {
+			width: 100%;
+		}
+
+		.swiper-container img{
+			height:100%;
+			width:100%;
+		}
+
+		.slide-next{
+			cursor:pointer;
+			position:absolute;
+			left:0;
+			bottom:20px;
+			width: 100%;
+			z-index: 999;
+			animation: myfirst 1s infinite linear;
+			-webkit-animation: myfirst 1s infinite linear; /* Safari 与 Chrome */
+		}
+		.slide-next img{
+			margin: 0 auto;
+		}
+
+		@keyframes myfirst
+		{
+			from{bottom:20px;}
+			to{bottom:10px;}
+		}
+
+		@-webkit-keyframes myfirst  /* Safari 与 Chrome */
+		{
+			from{bottom:20px;}
+			to{bottom:10px;}
+		}
+
+	</style>
+</head>
+
+<body style="overflow: hidden; height: 100%;" class="fp-viewing-section-5">
+
+	<div class="H0_wrapper">
+		<div class="H_wrapper">
+			<!--导航 s-->
+			<div class="H_header">
+    <a class="logowap" href="" >
+        <img class="logo" src="/static/yili/images/logo.png">
+    </a>
+    <?php 
+        $nav = getNav();
+
+     ?>
+
+    <ul class="H_menulist" id="H_menulist">
+        <?php if(is_array($nav) || $nav instanceof \think\Collection || $nav instanceof \think\Paginator): $i = 0; $__LIST__ = $nav;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if(empty($vo['children'])): ?>
+                <li <?php echo input('categoryId',1)== $vo['id'] || isSubCategory($vo['id'],input('categoryId',1)) ? 'class="active"':'' ?> ><a href="<?php echo $vo['href']?(handleNavUrl($vo['href']).'?categoryId='.$vo['id']):'javascript:;'; ?>" ><?php echo $vo['name']; ?></a></li>
+            <?php else: ?>
+                <li <?php echo input('categoryId',1)== $vo['id'] || isSubCategory($vo['id'],input('categoryId',1)) ? 'class="active"':'' ?> >
+                    <a href="<?php echo $vo['href']?(handleNavUrl($vo['href']).'?categoryId='.$vo['id']):'javascript:;'; ?>" ><?php echo $vo['name']; ?></a>
+                    <div class="H_menucon01 H_menucon" style="width: 120px; background: url(/static/yili/images/nav-top.png) center top no-repeat; display: none;">
+                        <div class="H_menuconleft">
+                            <ul>
+                                <?php if(is_array($vo['children']) || $vo['children'] instanceof \think\Collection || $vo['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vo['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vovo): $mod = ($i % 2 );++$i;?>
+                                    <li class="H_menuconleft0<?php echo $i; ?>">
+                                        <a href="<?php echo $vovo['href']?(handleNavUrl($vovo['href']).'?categoryId='.$vovo['id']):'javascript:;'; ?>" ><?php echo $vovo['name']; ?></a>
+                                        <?php if(!empty($vovo['children'])): ?>
+                                            <div class="H_menuconright" style="display: none;">
+                                                <?php if(is_array($vovo['children']) || $vovo['children'] instanceof \think\Collection || $vovo['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vovo['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vovovo): $mod = ($i % 2 );++$i;?>
+                                                    <p><a href="<?php echo $vovovo['href']?(handleNavUrl($vovovo['href']).'?categoryId='.$vovovo['id']):'javascript:;'; ?>" ><?php echo $vovovo['name']; ?></a></p>
+                                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </li>
+
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
+    </ul>
+
+
+
+    <div class="header_right">
+        <div class="H_shop">
+            <a href="https://yili.tmall.com/shop/view_shop.htm?spm=a1z10.3-b.w5001-13187320225.3.KsXCrp&amp;scene=taobao_shop" target="_blank"><i></i>
+                在线商城</a>
+        </div>
+        <div class="H_search">
+            <div class="H_search_active">
+                <div class="H_search_activecon">
+                    <input class="qsrnr" type="search" id="search" placeholder="请输入搜索的内容"> <input type="button" class="qsrgo" onclick="goSearch();">
+                </div>
+            </div>
+        </div>
+        <div class="H_menu"></div>
+    </div>
+    <div class="H_menuwap">
+        <ul>
+            <?php if(is_array($nav) || $nav instanceof \think\Collection || $nav instanceof \think\Paginator): $i = 0; $__LIST__ = $nav;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                <li class="H_menunoi"><a href="<?php echo $vo['href']?(handleNavUrl($vo['href']).'?categoryId='.$vo['id']):'javascript:;'; ?>"><?php echo $vo['name']; ?></a></li>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function goSearch() {
+        var searchStr = $("#search").val();
+        if (searchStr == null || searchStr == "") {
+            return false;
+        }
+        window.location.href = "/cms/rest/reception/articles/search?title="
+            + encodeURI(encodeURI(searchStr));
+    }
+</script>
+<script>
+    //去掉最后一个导航的下拉菜单
+    $(".H_menulist li").last().children(".H_menucon02").remove();
+</script>
+
+
+			<!--导航 e-->
+
+			<!--幻灯片 s-->
+			<?php 
+				//pc
+				$slide1 = getSlide(1);
+				//mobile
+				$slide2 = getSlide(2);
+				$slideLenght = count($slide1)
+			 ?>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+
+					<?php if(is_array($slide1) || $slide1 instanceof \think\Collection || $slide1 instanceof \think\Paginator): $k = 0; $__LIST__ = $slide1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?>
+						<div class="swiper-slide">
+							<img class="slide-img"
+								 data-img1="<?php echo cmf_get_image_url($vo['image']); ?>"
+								 data-img2="<?php echo isset($slide2[$k-1]) ? cmf_get_image_url($slide2[$k-1]['image']) :''; ?>" alt="">
+							<?php if($k == $slideLenght): ?>
+								<div class="M_footer">
     <div class="H_footerpad F_footer0">
         <p class="H_footerp1">
             <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=1">关于我们</a>
@@ -111,32 +315,95 @@
             <!---->
             <div class="H0_bottom">
                 <div class="H0_bottomerweim">
-                    <img src="__STATIC__/yili/images/sy011.png">
+                    <img src="/static/yili/images/sy011.png">
                 </div>
                 <a href="http://weibo.com/u/5236823068?is_hot=1" target="_blank" class="H0_csina" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A19_底部社交媒体按钮&#39;, &#39;C01A19L02_所有页面_底部新浪微博按钮_新浪微博&#39;);"><img
-                        src="__STATIC__/yili/images/icon039.png"></a> <a href="javascript:;" class="H0_cwechat" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A19_底部社交媒体按钮&#39;, &#39;C01A19L01_所有页面_底部社交媒体按钮_微信&#39;);"><img
-                    src="__STATIC__/yili/images/icon038.png"></a>
+                        src="/static/yili/images/icon039.png"></a> <a href="javascript:;" class="H0_cwechat" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A19_底部社交媒体按钮&#39;, &#39;C01A19L01_所有页面_底部社交媒体按钮_微信&#39;);"><img
+                    src="/static/yili/images/icon038.png"></a>
             </div>
         </div>
         <div class="H_footerbot">
             <div class="H_footerbotcon">
                 <p>
-                    <a href="" ></a>
-                    <span>
-                        <notempty name="site_info.site_icp">
-                            <a href="http://www.miitbeian.gov.cn/" target="_blank">{$site_info.site_icp}</a>
-                            <else/>
-                            请在后台设置"网站信息"设置"ICP备"
-                        </notempty>
-                        <notempty name="site_info.site_gwa">
-                            <img src="__TMPL__/public/assets/images/ghs.png">
-                            <a href="http://beian.gov.cn/" target="_blank">{$site_info.site_gwa}</a>
-                            <else/>
-                            请在后台设置"网站信息"设置"公网安备"
-                        </notempty>
+                    <a href="http://www.yili.com/cms/rest/reception/articles/show?id=1902" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A20_底部隐私权声明按钮&#39;, &#39;C01A20L01_所有页面_底部隐私权声明按钮&#39;);">隐私权声明</a>
+                    <span>©
+                        2010 YILI.COM INC. ALLRIGHTS RESERVED. 内蒙古伊利实业集团股份有限公司版权所有 蒙ICP备09003253号-2
                     </span>
                 </p>
             </div>
         </div>
     </div>
 </div>
+							<?php endif; ?>
+
+						</div>
+
+					<?php endforeach; endif; else: echo "" ;endif; ?>
+
+				</div>
+
+			</div>
+
+			<div class="slide-next">
+				<img src="/static/yili/images/icon042.png" alt="">
+			</div>
+			<!--幻灯片 e-->
+
+		</div>
+	</div>
+
+
+	<script>
+
+		$(function(){
+
+
+			var winWidh = $(window).width()
+            var winHeight = $(window).height()
+            var topHeigth = $('.H_header').height()
+
+			//根据屏幕宽度选择要加载的幻灯片图片
+			$('.slide-img').each(function(){
+				var _that = $(this)
+				if(winWidh >= 768){
+					_that.attr('src',_that.data('img1'));
+				} else {
+					_that.attr('src',_that.data('img2'));
+				}
+			})
+
+			//设置幻灯片容器高度
+			$('.swiper-container').css({'height':winHeight - topHeigth})
+            $('.swiper-container').css({'margin-top':topHeigth})
+
+            var slideCurrent = 0 ;		//幻灯片当前移动到的位置
+
+			var mySwiper= new Swiper ('.swiper-container', {
+				direction: 'vertical',
+                onTouchEnd: function(swiper){ }
+			})
+
+			//设置底部的显Z_zjyltit示
+
+            $(".slide-next").click(function(){
+                var bottomHeight = $('.M_footer').height();
+
+                if(mySwiper.isEnd){
+                    if(slideCurrent === 0 ){
+                        slideCurrent  = mySwiper.getWrapperTranslate();
+                    }
+					mySwiper.setWrapperTranslate(slideCurrent - bottomHeight);
+
+                } else {
+                    mySwiper.slideNext();
+                }
+
+			})
+		})
+
+
+
+	</script>
+</body>
+
+</html>
