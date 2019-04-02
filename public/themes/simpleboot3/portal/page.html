@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$page.post_title}</title>
+    <!--head s-->
+    <include file="public@head"/>
+    <!--head e-->
+
+    <style>
+        .page-content img{
+            width:100% !important;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="H_wrapper">
+        <include file="public@nav"/>
+
+        <include file="public@bread"/>
+
+
+        <div class="main">
+            <div class="page-content">
+                {$page.post_content|default=''}
+            </div>
+        </div>
+    </div>
+    <include file="public@footer"/>
+
+</body>
+
+
+</html>

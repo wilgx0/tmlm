@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$category.name} {$category.seo_title} {$site_info.site_name|default=''}</title>
+    <!--head s-->
+    <include file="public@head"/>
+    <!--head e-->
+
+</head>
+
+
+<body>
+
+<div class="H_wrapper">
+    <include file="public@nav"/>
+    <include file="public@bread"/>
+
+    <div class="Q_qyxw">
+        <span>{$category.name}</span>
+    </div>
+    <!--文章列表-->
+    <div class="N_newcon">
+        <div class="N_newcontop">
+            <h1>{$article.post_title}</h1>
+            <div class="shareContent"><span>2019-3-29</span></div>
+        </div>
+        <div class="N_newconcenter">
+            {$article.post_content}
+        </div>
+
+    </div>
+
+
+    <!-- 内容 结束-->
+
+</div>
+<include file="public@footer"/>
+
+</body>
+
+
+</html>

@@ -1,0 +1,81 @@
+<div class="H_header">
+    <a class="logowap" href="" >
+        <img class="logo" src="__STATIC__/yili/images/logo.png">
+    </a>
+    <php>
+        $nav = getNav();
+
+    </php>
+
+    <ul class="H_menulist" id="H_menulist">
+        <volist name="nav" id="vo">
+            <if condition="empty($vo.children)">
+                <li <php>echo input('categoryId',1)== $vo['id'] || isSubCategory($vo['id'],input('categoryId',1)) ? 'class="active"':''</php> ><a href="<php>echo $vo['href']?(handleNavUrl($vo['href']).'?categoryId='.$vo['id']):'javascript:;';</php>" >{$vo.name}</a></li>
+            <else />
+                <li <php>echo input('categoryId',1)== $vo['id'] || isSubCategory($vo['id'],input('categoryId',1)) ? 'class="active"':''</php> >
+                    <a href="<php>echo $vo['href']?(handleNavUrl($vo['href']).'?categoryId='.$vo['id']):'javascript:;';</php>" >{$vo.name}</a>
+                    <div class="H_menucon01 H_menucon" style="width: 120px; background: url(__STATIC__/yili/images/nav-top.png) center top no-repeat; display: none;">
+                        <div class="H_menuconleft">
+                            <ul>
+                                <volist name="vo.children" id="vovo">
+                                    <li class="H_menuconleft0{$i}">
+                                        <a href="<php>echo $vovo['href']?(handleNavUrl($vovo['href']).'?categoryId='.$vovo['id']):'javascript:;';</php>" >{$vovo.name}</a>
+                                        <if condition="!empty($vovo.children)">
+                                            <div class="H_menuconright" style="display: none;">
+                                                <volist name="vovo.children" id="vovovo">
+                                                    <p><a href="<php>echo $vovovo['href']?(handleNavUrl($vovovo['href']).'?categoryId='.$vovovo['id']):'javascript:;';</php>" >{$vovovo.name}</a></p>
+                                                </volist>
+                                            </div>
+                                        </if>
+                                    </li>
+
+                                </volist>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </if>
+        </volist>
+    </ul>
+
+
+
+    <div class="header_right">
+        <div class="H_shop">
+            <a href="https://yili.tmall.com/shop/view_shop.htm?spm=a1z10.3-b.w5001-13187320225.3.KsXCrp&amp;scene=taobao_shop" target="_blank"><i></i>
+                在线商城</a>
+        </div>
+        <div class="H_search">
+            <div class="H_search_active">
+                <div class="H_search_activecon">
+                    <input class="qsrnr" type="search" id="search" placeholder="请输入搜索的内容"> <input type="button" class="qsrgo" onclick="goSearch();">
+                </div>
+            </div>
+        </div>
+        <div class="H_menu"></div>
+    </div>
+    <div class="H_menuwap">
+        <ul>
+            <volist name="nav" id="vo">
+                <li class="H_menunoi"><a href="<php>echo $vo['href']?(handleNavUrl($vo['href']).'?categoryId='.$vo['id']):'javascript:;';</php>">{$vo.name}</a></li>
+            </volist>
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function goSearch() {
+        var searchStr = $("#search").val();
+        if (searchStr == null || searchStr == "") {
+            return false;
+        }
+        window.location.href = "/cms/rest/reception/articles/search?title="
+            + encodeURI(encodeURI(searchStr));
+    }
+</script>
+<script>
+    //去掉最后一个导航的下拉菜单
+    $(".H_menulist li").last().children(".H_menucon02").remove();
+</script>
+

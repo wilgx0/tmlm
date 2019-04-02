@@ -1,0 +1,18 @@
+<php>
+    $subMenu = getSubNav(request()->get('categoryId'));
+</php>
+
+<div class="Z_zjyltit">
+    <p>
+        <php>echo getBreadTitle(request()->get('categoryId'));</php>
+        <if condition="count($subMenu) gt 0">
+            <span>
+                <volist name="subMenu" id="vo">
+                    <a href="<php>echo $vo['href']?(handleNavUrl($vo['href']).'?categoryId='.$vo['id']):'javascript:;';</php>"
+                       <php>echo input('categoryId',1)== $vo['id'] || isSubCategory($vo['id'],input('categoryId',1)) ? 'class="active"':''</php> >
+                        {$vo.name}</a>
+                </volist>
+            </span>
+        </if>
+    </p>
+</div>
