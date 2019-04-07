@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\\index.html";i:1554646345;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\\index.html";i:1554648802;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;}*/ ?>
 <!DOCTYPE html >
 <html lang="en" style="overflow: hidden; height: 100%;">
 
@@ -199,8 +199,9 @@
 					<?php if(is_array($slide1) || $slide1 instanceof \think\Collection || $slide1 instanceof \think\Paginator): $k = 0; $__LIST__ = $slide1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?>
 						<div class="swiper-slide">
 							<a href="<?php echo $vo['url']; ?>">
-								<img class="slide-img" src="<?php echo cmf_get_image_url($vo['image']); ?>" alt="">
+								<img class="slide-img swiper-lazy" data-src="<?php echo cmf_get_image_url($vo['image']); ?>" alt="">
 							</a>
+							<div class="swiper-lazy-preloader"></div>
 						</div>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
 					<div class="swiper-slide">
@@ -376,6 +377,7 @@
 				direction: 'vertical',
                 mousewheelControl : true,
                 slidesPerView : 'auto',
+                lazyLoading : true,
                 onTransitionEnd: function(swiper){          //回调函数，过渡结束时触发
                     if(swiper.progress==1){         //对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。
                         swiper.activeIndex = swiper.slides.length - 1

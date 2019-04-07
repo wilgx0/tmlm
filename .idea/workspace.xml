@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51697956-6c1e-4ccf-864c-3eaae9cd4284" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/38dae03cd72338fba867b2660324b4a6.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/runtime/temp/38dae03cd72338fba867b2660324b4a6.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/d20dff6e2d3e08839af2eb3443900493.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/runtime/temp/d20dff6e2d3e08839af2eb3443900493.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/themes/simpleboot3/portal/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/themes/simpleboot3/portal/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/runtime/log/201904/07.log" beforeDir="false" afterPath="$PROJECT_DIR$/data/runtime/log/201904/07.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -228,9 +225,9 @@
       <path value="$PROJECT_DIR$/simplewind/vendor/phpmailer/phpmailer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-7" />
-    <option name="y" value="364" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="351" />
+    <option name="y" value="168" />
     <option name="width" value="1688" />
     <option name="height" value="1005" />
   </component>
@@ -358,18 +355,17 @@
       <workItem from="1554208791420" duration="588000" />
       <workItem from="1554213545422" duration="1266000" />
       <workItem from="1554532018779" duration="9611000" />
-      <workItem from="1554641557613" duration="4149000" />
+      <workItem from="1554641557613" duration="5245000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120242000" />
+    <option name="totallyTimeSpent" value="121338000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="262" y="48" width="1688" height="1005" extended-state="0" />
-    <editor active="true" />
+    <frame x="483" y="148" width="1688" height="1005" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8615783" weight="0.13333334" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8615783" visible="true" weight="0.19594595" />
       <window_info id="Structure" order="1" sideWeight="0.13842173" side_tool="true" weight="0.15064102" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />

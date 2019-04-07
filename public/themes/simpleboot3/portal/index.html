@@ -76,8 +76,9 @@
 					<volist name="$slide1" id="vo" key="k">
 						<div class="swiper-slide">
 							<a href="{$vo.url}">
-								<img class="slide-img" src="{:cmf_get_image_url($vo.image)}" alt="">
+								<img class="slide-img swiper-lazy" data-src="{:cmf_get_image_url($vo.image)}" alt="">
 							</a>
+							<div class="swiper-lazy-preloader"></div>
 						</div>
 					</volist>
 					<div class="swiper-slide">
@@ -113,6 +114,7 @@
 				direction: 'vertical',
                 mousewheelControl : true,
                 slidesPerView : 'auto',
+                lazyLoading : true,
                 onTransitionEnd: function(swiper){          //回调函数，过渡结束时触发
                     if(swiper.progress==1){         //对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。
                         swiper.activeIndex = swiper.slides.length - 1
