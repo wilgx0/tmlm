@@ -50,7 +50,6 @@
 			from{bottom:20px;}
 			to{bottom:10px;}
 		}
-
 	</style>
 </head>
 
@@ -64,28 +63,26 @@
 
 			<!--幻灯片 s-->
 			<php>
-				//pc
-				$slide1 = getSlide(1);
-				//mobile
-				$slide2 = getSlide(2);
-				$slideLenght = count($slide1)
+				$slide1 = [];
+				if(request()->isMobile()){	   //mobile
+					$slide1 = getSlide(2);
+				} else {                       //pc
+					$slide1 = getSlide(1);
+				}
 			</php>
-			<div class="swiper-container">
+			<div class="swiper-container" >
 				<div class="swiper-wrapper">
 
 					<volist name="$slide1" id="vo" key="k">
 						<div class="swiper-slide">
-							<img class="slide-img"
-								 data-img1="{:cmf_get_image_url($vo.image)}"
-								 data-img2="<?php echo isset($slide2[$k-1]) ? cmf_get_image_url($slide2[$k-1]['image']) :''; ?>" alt="">
-							<if condition="$k == $slideLenght">
-								<include file="public@footer-bottom"/>
-							</if>
-
+							<a href="{$vo.url}">
+								<img class="slide-img" src="{:cmf_get_image_url($vo.image)}" alt="">
+							</a>
 						</div>
-
 					</volist>
-
+					<div class="swiper-slide">
+						<include file="public@footer-bottom"/>
+					</div>
 				</div>
 
 			</div>
@@ -104,47 +101,32 @@
 		$(function(){
 
 
-			var winWidh = $(window).width()
-            var winHeight = $(window).height()
-            var topHeigth = $('.H_header').height()
-
-			//根据屏幕宽度选择要加载的幻灯片图片
-			$('.slide-img').each(function(){
-				var _that = $(this)
-				if(winWidh >= 768){
-					_that.attr('src',_that.data('img1'));
-				} else {
-					_that.attr('src',_that.data('img2'));
-				}
-			})
-
+			var winWidh = $(window).width();
+            var winHeight = $(window).height();
+            var topHeigth = $('.H_header').height();			//头部高度
+			var bottomHeight = $('.M_footer').height();			//底部高度
 			//设置幻灯片容器高度
-			$('.swiper-container').css({'height':winHeight - topHeigth})
-            $('.swiper-container').css({'margin-top':topHeigth})
-
-            var slideCurrent = 0 ;		//幻灯片当前移动到的位置
+			$('.swiper-container').css({'height':winHeight - topHeigth,'margin-top':topHeigth});
+			$('.swiper-container .swiper-slide:last-child').height(bottomHeight);
 
 			var mySwiper= new Swiper ('.swiper-container', {
 				direction: 'vertical',
-                onTouchEnd: function(swiper){ }
-			})
+                mousewheelControl : true,
+                slidesPerView : 'auto',
+                onTransitionEnd: function(swiper){          //回调函数，过渡结束时触发
+                    if(swiper.progress==1){         //对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。
+                        swiper.activeIndex = swiper.slides.length - 1
+                    }
+                }
+			});
 
 			//设置底部的显Z_zjyltit示
-
             $(".slide-next").click(function(){
-                var bottomHeight = $('.M_footer').height();
+                mySwiper.slideNext();
+			});
 
-                if(mySwiper.isEnd){
-                    if(slideCurrent === 0 ){
-                        slideCurrent  = mySwiper.getWrapperTranslate();
-                    }
-					mySwiper.setWrapperTranslate(slideCurrent - bottomHeight);
 
-                } else {
-                    mySwiper.slideNext();
-                }
 
-			})
 		})
 
 

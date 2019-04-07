@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\\index.html";i:1554027600;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554017331;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\\index.html";i:1554646345;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;}*/ ?>
 <!DOCTYPE html >
 <html lang="en" style="overflow: hidden; height: 100%;">
 
@@ -94,7 +94,6 @@
 			from{bottom:20px;}
 			to{bottom:10px;}
 		}
-
 	</style>
 </head>
 
@@ -187,22 +186,25 @@
 
 			<!--幻灯片 s-->
 			<?php 
-				//pc
-				$slide1 = getSlide(1);
-				//mobile
-				$slide2 = getSlide(2);
-				$slideLenght = count($slide1)
+				$slide1 = [];
+				if(request()->isMobile()){	   //mobile
+					$slide1 = getSlide(2);
+				} else {                       //pc
+					$slide1 = getSlide(1);
+				}
 			 ?>
-			<div class="swiper-container">
+			<div class="swiper-container" >
 				<div class="swiper-wrapper">
 
 					<?php if(is_array($slide1) || $slide1 instanceof \think\Collection || $slide1 instanceof \think\Paginator): $k = 0; $__LIST__ = $slide1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?>
 						<div class="swiper-slide">
-							<img class="slide-img"
-								 data-img1="<?php echo cmf_get_image_url($vo['image']); ?>"
-								 data-img2="<?php echo isset($slide2[$k-1]) ? cmf_get_image_url($slide2[$k-1]['image']) :''; ?>" alt="">
-							<?php if($k == $slideLenght): ?>
-								<div class="M_footer">
+							<a href="<?php echo $vo['url']; ?>">
+								<img class="slide-img" src="<?php echo cmf_get_image_url($vo['image']); ?>" alt="">
+							</a>
+						</div>
+					<?php endforeach; endif; else: echo "" ;endif; ?>
+					<div class="swiper-slide">
+						<div class="M_footer">
     <div class="H_footerpad F_footer0">
         <p class="H_footerp1">
             <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=1">关于我们</a>
@@ -325,21 +327,25 @@
         <div class="H_footerbot">
             <div class="H_footerbotcon">
                 <p>
-                    <a href="http://www.yili.com/cms/rest/reception/articles/show?id=1902" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A20_底部隐私权声明按钮&#39;, &#39;C01A20L01_所有页面_底部隐私权声明按钮&#39;);">隐私权声明</a>
-                    <span>©
-                        2010 YILI.COM INC. ALLRIGHTS RESERVED. 内蒙古伊利实业集团股份有限公司版权所有 蒙ICP备09003253号-2
+                    <a href="" ></a>
+                    <span>
+                        <?php if(!(empty($site_info['site_icp']) || (($site_info['site_icp'] instanceof \think\Collection || $site_info['site_icp'] instanceof \think\Paginator ) && $site_info['site_icp']->isEmpty()))): ?>
+                            <a href="http://www.miitbeian.gov.cn/" target="_blank"><?php echo $site_info['site_icp']; ?></a>
+                            <?php else: ?>
+                            请在后台设置"网站信息"设置"ICP备"
+                        <?php endif; if(!(empty($site_info['site_gwa']) || (($site_info['site_gwa'] instanceof \think\Collection || $site_info['site_gwa'] instanceof \think\Paginator ) && $site_info['site_gwa']->isEmpty()))): ?>
+                            <img src="/themes/simpleboot3/public/assets/images/ghs.png">
+                            <a href="http://beian.gov.cn/" target="_blank"><?php echo $site_info['site_gwa']; ?></a>
+                            <?php else: ?>
+                            请在后台设置"网站信息"设置"公网安备"
+                        <?php endif; ?>
                     </span>
                 </p>
             </div>
         </div>
     </div>
 </div>
-							<?php endif; ?>
-
-						</div>
-
-					<?php endforeach; endif; else: echo "" ;endif; ?>
-
+					</div>
 				</div>
 
 			</div>
@@ -358,47 +364,32 @@
 		$(function(){
 
 
-			var winWidh = $(window).width()
-            var winHeight = $(window).height()
-            var topHeigth = $('.H_header').height()
-
-			//根据屏幕宽度选择要加载的幻灯片图片
-			$('.slide-img').each(function(){
-				var _that = $(this)
-				if(winWidh >= 768){
-					_that.attr('src',_that.data('img1'));
-				} else {
-					_that.attr('src',_that.data('img2'));
-				}
-			})
-
+			var winWidh = $(window).width();
+            var winHeight = $(window).height();
+            var topHeigth = $('.H_header').height();			//头部高度
+			var bottomHeight = $('.M_footer').height();			//底部高度
 			//设置幻灯片容器高度
-			$('.swiper-container').css({'height':winHeight - topHeigth})
-            $('.swiper-container').css({'margin-top':topHeigth})
-
-            var slideCurrent = 0 ;		//幻灯片当前移动到的位置
+			$('.swiper-container').css({'height':winHeight - topHeigth,'margin-top':topHeigth});
+			$('.swiper-container .swiper-slide:last-child').height(bottomHeight);
 
 			var mySwiper= new Swiper ('.swiper-container', {
 				direction: 'vertical',
-                onTouchEnd: function(swiper){ }
-			})
+                mousewheelControl : true,
+                slidesPerView : 'auto',
+                onTransitionEnd: function(swiper){          //回调函数，过渡结束时触发
+                    if(swiper.progress==1){         //对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。
+                        swiper.activeIndex = swiper.slides.length - 1
+                    }
+                }
+			});
 
 			//设置底部的显Z_zjyltit示
-
             $(".slide-next").click(function(){
-                var bottomHeight = $('.M_footer').height();
+                mySwiper.slideNext();
+			});
 
-                if(mySwiper.isEnd){
-                    if(slideCurrent === 0 ){
-                        slideCurrent  = mySwiper.getWrapperTranslate();
-                    }
-					mySwiper.setWrapperTranslate(slideCurrent - bottomHeight);
 
-                } else {
-                    mySwiper.slideNext();
-                }
 
-			})
 		})
 
 
