@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$page.post_title}</title>
+    <!--head s-->
+    <include file="public@head"/>
+    <!--head e-->
+
+    <style>
+
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="H_wrapper">
+
+        <include file="public@nav"/>
+
+        <include file="public@bread"/>
+
+        <!--主体开始-->
+        <widget name="features">
+
+            <div class="A_zjyl G_zjyl">
+                <h2>{$widget.title}</h2>
+                <p class="G_zjylpc">{$widget.vars.sub_title}</p>
+                <p class="G_zjylwap">{$widget.vars.sub_title}</p>
+            </div>
+
+            <div class="G_yljtpad">
+                <p>{$page.post_title}</p>
+            </div>
+
+
+
+            <div class="G_gsjscon">
+
+                <php>
+                    $features = $widget['vars']['features'];
+                </php>
+
+                <foreach name="features" item="vo" key="k">
+                    <div class="G_yljj0<php> echo ($k%2) + 1; </php>">
+                        <img src="__STATIC__/yili/myimg/{$vo.img}">
+                        <div class="G_yljj01b ylpz0 mCustomScrollbar _mCS_1" >
+                            <div id="mCSB_1" class="mCustomScrollBox mCS-light-2 mCSB_vertical mCSB_inside">
+                                <div id="mCSB_1_container" class="mCSB_container">
+                                    <span><b>{$vo.title}</b></span>
+                                    <p>{$vo.content}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="G_yljj01bpad">
+                            <span>{$vo.title}</span>
+                            <p>{$vo.content}</p>
+                            <img class="opacity_yl-ys" src="__STATIC__/yili/images/opacity_yl_ys.png">
+                        </div>
+                        <img class="opacity_yl" src="__STATIC__/yili/images/opacity_yl.png">
+                    </div>
+                </foreach>
+
+            </div>
+
+        </widget>
+        <!--主体结束-->
+
+
+    </div>
+
+
+    <include file="public@footer"/>
+    <script>
+        (function($) {
+            $(window).load(function() {
+                $.mCustomScrollbar.defaults.theme = "light-2";
+                $(".ylpz0").mCustomScrollbar();
+            });
+        })(jQuery);
+    </script>
+</body>
+
+
+</html>

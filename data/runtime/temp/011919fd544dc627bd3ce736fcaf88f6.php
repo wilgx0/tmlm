@@ -1,11 +1,10 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\\index.html";i:1554729214;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;}*/ ?>
-<!DOCTYPE html >
-<html lang="en" style="overflow: hidden; height: 100%;">
-
+<?php if (!defined('THINK_PATH')) exit(); /*a:7:{s:82:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\company.html";i:1554820263;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:80:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\bread.html";i:1554027832;s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer.html";i:1554017417;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-right.html";i:1554017331;}*/ ?>
+<!DOCTYPE html>
+<html>
 <head>
-	<title><?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?></title>
-	<!--head s-->
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><?php echo $page['post_title']; ?></title>
+    <!--head s-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="msapplication-tap-highlight" content="no">
@@ -49,60 +48,20 @@
        clear:both;
     }
 </style>
-	<!--head e-->
-	<link type="text/css" rel="stylesheet" href="/static/yili/css/swiper-3.4.2.min.css">
-	<script src="/static/yili/js/swiper-3.4.2.min.js"></script>
+    <!--head e-->
 
-	<style>
-		.H_wrapper{
-			min-width: 100%;
-			max-width: 100%;
-			position:relative;
-		}
+    <style>
 
-		.swiper-container {
-			width: 100%;
-		}
 
-		.swiper-container img{
-			height:100%;
-			width:100%;
-		}
-
-		.slide-next{
-			cursor:pointer;
-			position:absolute;
-			left:0;
-			bottom:20px;
-			width: 100%;
-			z-index: 999;
-			animation: myfirst 1s infinite linear;
-			-webkit-animation: myfirst 1s infinite linear; /* Safari 与 Chrome */
-		}
-		.slide-next img{
-			margin: 0 auto;
-		}
-
-		@keyframes myfirst
-		{
-			from{bottom:20px;}
-			to{bottom:10px;}
-		}
-
-		@-webkit-keyframes myfirst  /* Safari 与 Chrome */
-		{
-			from{bottom:20px;}
-			to{bottom:10px;}
-		}
-	</style>
+    </style>
 </head>
 
-<body style="overflow: hidden; height: 100%;" class="fp-viewing-section-5">
 
-	<div class="H0_wrapper">
-		<div class="H_wrapper">
-			<!--导航 s-->
-			<div class="H_header">
+<body>
+
+    <div class="H_wrapper">
+
+        <div class="H_header">
     <a class="logowap" href="" >
         <img class="logo" src="/static/yili/images/logo.png">
     </a>
@@ -182,30 +141,124 @@
 </script>
 
 
-			<!--导航 e-->
 
-			<!--幻灯片 s-->
-			<?php 
-				$slide1 = [];
-				if(request()->isMobile()){	   //mobile
-					$slide1 = getSlide(2);
-				} else {                       //pc
-					$slide1 = getSlide(1);
-				}
-			 ?>
-			<div class="swiper-container" >
-				<div class="swiper-wrapper">
+        <?php 
+    $subMenu = getSubNav(request()->get('categoryId'));
+ ?>
 
-					<?php if(is_array($slide1) || $slide1 instanceof \think\Collection || $slide1 instanceof \think\Paginator): $k = 0; $__LIST__ = $slide1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?>
-						<div class="swiper-slide">
-							<a href="<?php echo $vo['url']; ?>">
-								<img class="slide-img swiper-lazy" data-src="<?php echo cmf_get_image_url($vo['image']); ?>" alt="">
-							</a>
-							<div class="swiper-lazy-preloader"></div>
-						</div>
-					<?php endforeach; endif; else: echo "" ;endif; ?>
-					<div class="swiper-slide">
-						<div class="M_footer">
+<div class="Z_zjyltit">
+    <p>
+        <?php echo getBreadTitle(request()->get('categoryId')); if(count($subMenu) > 0): ?>
+            <span>
+                <?php if(is_array($subMenu) || $subMenu instanceof \think\Collection || $subMenu instanceof \think\Paginator): $i = 0; $__LIST__ = $subMenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                    <a href="<?php echo $vo['href']?(handleNavUrl($vo['href']).'?categoryId='.$vo['id']):'javascript:;'; ?>"
+                       <?php echo input('categoryId',1)== $vo['id'] || isSubCategory($vo['id'],input('categoryId',1)) ? 'class="active"':'' ?> >
+                        <?php echo $vo['name']; ?></a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </span>
+        <?php endif; ?>
+    </p>
+</div>
+
+        <!--主体开始-->
+        <?php
+     if(isset($theme_widgets['features']) && $theme_widgets['features']['display']){
+        $widget=$theme_widgets['features'];
+     
+ ?>
+
+
+            <div class="A_zjyl G_zjyl">
+                <h2><?php echo $widget['title']; ?></h2>
+                <p class="G_zjylpc"><?php echo $widget['vars']['sub_title']; ?></p>
+                <p class="G_zjylwap"><?php echo $widget['vars']['sub_title']; ?></p>
+            </div>
+
+            <div class="G_yljtpad">
+                <p><?php echo $page['post_title']; ?></p>
+            </div>
+
+
+
+            <div class="G_gsjscon">
+                <?php 
+                    $features = $widget['vars']['features'];
+                 if(is_array($features) || $features instanceof \think\Collection || $features instanceof \think\Paginator): if( count($features)==0 ) : echo "" ;else: foreach($features as $k=>$vo): ?>
+                    <div class="G_yljj0<?php  echo ($k%2) + 1;  ?>">
+                        <img src="/static/yili/myimg/<?php echo $vo['img']; ?>">
+                        <div class="G_yljj01b ylpz0 mCustomScrollbar _mCS_1" >
+                            <div id="mCSB_1" class="mCustomScrollBox mCS-light-2 mCSB_vertical mCSB_inside">
+                                <div id="mCSB_1_container" class="mCSB_container">
+                                    <span><b><?php echo $vo['title']; ?></b></span>
+                                    <p><?php echo $vo['content']; ?></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="G_yljj01bpad">
+                            <span><?php echo $vo['title']; ?></span>
+                            <p><?php echo $vo['content']; ?></p>
+                            <img class="opacity_yl-ys" src="/static/yili/images/opacity_yl_ys.png">
+                        </div>
+                        <img class="opacity_yl" src="/static/yili/images/opacity_yl.png">
+                    </div>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+
+
+
+                <!--<div class="G_yljj02">-->
+
+                    <!--<img src="http://image.yili.com/upload/articleImages/20160918170108470.jpg">-->
+                    <!--<div class="G_yljj02b ylpz0 mCustomScrollbar _mCS_2" style="">-->
+                        <!--<div id="mCSB_2" class="mCustomScrollBox mCS-light-2 mCSB_vertical mCSB_inside" >-->
+                            <!--<div id="mCSB_2_container" class="mCSB_container" >-->
+                                <!--<span>品质，视如生命 </span>-->
+                                <!--<p></p>-->
+                                <!--<p>伊利将品质视为生命，致力于生产100%安全、100%健康的乳制品，将质量管理工作战略升级为“质量领先3210战略”，聚焦“全球最优品质”，持续升级全球质量管理体系，将严苛的质量管控标准贯穿于全球产业链，保证零食品安全事件。</p>-->
+
+                                <!--<p>一方面，伊利积极对标国际，与SGS（瑞士通用公证行）、LRQA（英国劳氏质量认证有限公司）和Intertek（英国天祥集团）达成战略合作，持续升级伊利全球质量安全管理体系，强化食品质量安全风险控制的能力。同时，伊利利用互联网思维，建立完善的产品追溯程序。奶源基地从奶牛出生即为其建立养殖档案，原奶运输过程实现全程可视化GPS跟踪，原奶入厂后采用条码扫描，随机编号检测；同时，建立了生产过程的产品批次信息跟踪表、关键环节的电子信息记录系统、质量管理信息的综合集成系统和覆盖全国的ERP网络系统，实现了产品信息可追溯的全面化、及时化和信息化，并且与国家平台进行对接。</p>-->
+
+                                <!--<p>另一方面，伊利是唯一一家掌控西北、内蒙古和东北等三大黄金奶源基地的乳品企业，拥有中国规模最大的优质奶源基地，以及众多的优质牧场，为原奶长期稳定的质量和产量提供了强有力保障。同时，伊利还在欧洲、大洋洲、美洲等积极整合全球优质奶源资源，更好地满足消费者对高品质乳品的需求。截至目前，伊利集团的所有原料奶合作供应商已经全部实现规模化、标准化养殖。</p>-->
+                                <!--<p></p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+
+                    <!--<div class="G_yljj02bpad">-->
+                        <!--<span>品质，视如生命 </span>-->
+                        <!--<p></p>-->
+                        <!--<p>伊利将品质视为生命，致力于生产100%安全、100%健康的乳制品，将质量管理工作战略升级为“质量领先3210战略”，聚焦“全球最优品质”，持续升级全球质量管理体系，将严苛的质量管控标准贯穿于全球产业链，保证零食品安全事件。</p>-->
+
+                        <!--<p>一方面，伊利积极对标国际，与SGS（瑞士通用公证行）、LRQA（英国劳氏质量认证有限公司）和Intertek（英国天祥集团）达成战略合作，持续升级伊利全球质量安全管理体系，强化食品质量安全风险控制的能力。同时，伊利利用互联网思维，建立完善的产品追溯程序。奶源基地从奶牛出生即为其建立养殖档案，原奶运输过程实现全程可视化GPS跟踪，原奶入厂后采用条码扫描，随机编号检测；同时，建立了生产过程的产品批次信息跟踪表、关键环节的电子信息记录系统、质量管理信息的综合集成系统和覆盖全国的ERP网络系统，实现了产品信息可追溯的全面化、及时化和信息化，并且与国家平台进行对接。-->
+                        <!--</p>-->
+
+                        <!--<p>另一方面，伊利是唯一一家掌控西北、内蒙古和东北等三大黄金奶源基地的乳品企业，拥有中国规模最大的优质奶源基地，以及众多的优质牧场，为原奶长期稳定的质量和产量提供了强有力保障。同时，伊利还在欧洲、大洋洲、美洲等积极整合全球优质奶源资源，更好地满足消费者对高品质乳品的需求。截至目前，伊利集团的所有原料奶合作供应商已经全部实现规模化、标准化养殖。-->
+                        <!--</p>-->
+                        <!--<p></p>-->
+                        <!--<img class="opacity_yl-ys" src="/static/yili/images/opacity_yl_ys.png">-->
+                    <!--</div>-->
+                    <!--<img class="opacity_yl" src="/static/yili/images/opacity_yl.png">-->
+
+                <!--</div>-->
+
+
+            </div>
+
+        
+<?php
+    }
+ ?>
+
+
+        <!--主体结束-->
+
+
+    </div>
+
+
+    
+<div class="M_footer">
     <div class="H_footerpad F_footer0">
         <p class="H_footerp1">
             <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=1">关于我们</a>
@@ -346,55 +399,34 @@
         </div>
     </div>
 </div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="slide-next">
-				<img src="/static/yili/images/icon042.png" alt="">
-			</div>
-			<!--幻灯片 e-->
-
-		</div>
-	</div>
-
-
-	<script>
-
-		$(function(){
-			var winWidh = $(window).width();
-            var winHeight = $(window).height();
-            var topHeigth = $('.H_header').height();			//头部高度
-			var bottomHeight = $('.M_footer').height();			//底部高度
-			//设置幻灯片容器高度
-			$('.swiper-container').css({'height':winHeight - topHeigth,'margin-top':topHeigth});
-			$('.swiper-container .swiper-slide:last-child').height(bottomHeight);
-
-			var mySwiper= new Swiper ('.swiper-container', {
-				direction: 'vertical',
-                mousewheelControl : true,
-                slidesPerView : 'auto',
-                lazyLoading : true,
-                onTransitionEnd: function(swiper){          //回调函数，过渡结束时触发
-                    if(swiper.progress==1){         //对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。
-                        swiper.activeIndex = swiper.slides.length - 1
-                    }
-                }
-			});
-
-			//设置底部的显Z_zjyltit示
-            $(".slide-next").click(function(){
-                mySwiper.slideNext();
-			});
+<!--右侧分享-->
+<div class="H_xuanfu">
+    <span class="H_share">
+        <div class="bdsharebuttonbox shareSide bdshare-button-style0-16" data-bd-bind="1551705296625">
+            <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=1#" class="bds_weixin" id="weixinSide" data-cmd="weixin"
+               title="分享到微信"></a>
+            <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=1#" class="popup_sqq"
+               id="qqSide" data-cmd="sqq" title="分享到QQ好友"></a>
+            <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=1#"
+               class="bds_tsina" id="sinaSide" data-cmd="tsina" title="分享到新浪微博"></a>
+        </div>
+    </span>
+    <a href="javascript:;" class="H_top" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A21_右侧导航按钮&#39;, &#39;C01A21L04_所有页面_右侧导航按钮_TOP&#39;);"></a>
+</div>
+<!--右侧分享-->
 
 
 
-		})
 
-
-
-	</script>
+    <script>
+        (function($) {
+            $(window).load(function() {
+                $.mCustomScrollbar.defaults.theme = "light-2";
+                $(".ylpz0").mCustomScrollbar();
+            });
+        })(jQuery);
+    </script>
 </body>
+
 
 </html>
