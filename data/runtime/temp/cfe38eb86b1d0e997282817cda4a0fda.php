@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:90:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/admin_simpleboot3/admin\slide\edit.html";i:1551705626;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\admin_simpleboot3\public\header.html";i:1551705626;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:93:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/admin_simpleboot3/admin\theme\install.html";i:1551705626;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\admin_simpleboot3\public\header.html";i:1551705626;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,33 +82,57 @@
     <?php endif; ?>
 </head>
 <body>
-	<div class="wrap">
-		<ul class="nav nav-tabs">
-			<li><a href="<?php echo url('slide/index'); ?>">幻灯片列表</a></li>
-			<li class="active"><a>编辑幻灯片</a></li>
-		</ul>
-		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="<?php echo url('slide/editPost'); ?>">
-			<div class="form-group">
-				<label for="input-name" class="col-sm-2 control-label">名称<span class="form-required">*</span></label>
-				<div class="col-md-6 col-sm-10">
-					<input type="text" class="form-control" id="input-name" name="name" value="<?php echo $result['name']; ?>">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="input-remark" class="col-sm-2 control-label"><?php echo lang('DESCRIPTION'); ?></label>
-				<div class="col-md-6 col-sm-10">
-					<textarea class="form-control" id="input-remark" name="remark"><?php echo $result['remark']; ?></textarea>
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-10">
-					<input type="hidden" name="id" value="<?php echo $result['id']; ?>">
-					<button type="submit" class="btn btn-primary js-ajax-submit"><?php echo lang('SAVE'); ?></button>
-					<a class="btn btn-default" href="<?php echo url('slide/index'); ?>"><?php echo lang('BACK'); ?></a>
-				</div>
-			</div>
-		</form>
-	</div>
-	<script src="/static/js/admin.js"></script>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="<?php echo url('theme/index'); ?>">所有模板</a></li>
+        <li class="active">
+            <a>安装模板</a>
+        </li>
+        <li>
+            <a href="http://www.thinkcmf.com/faq.html?url=https://www.kancloud.cn/thinkcmf/faq/493511"
+               target="_blank">安装说明 <i class="fa fa-question-circle"></i></a>
+        </li>
+    </ul>
+    <form method="post" class="js-ajax-form margin-top-20">
+        <?php  $status=array("1"=>lang('DISPLAY'),"0"=>lang('HIDDEN')); ?>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th>模板</th>
+                <th>模板名称</th>
+                <th>版本号</th>
+                <th>作者</th>
+                <th>模板描述</th>
+                <th width="120"><?php echo lang('ACTIONS'); ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if(is_array($themes) || $themes instanceof \think\Collection || $themes instanceof \think\Paginator): if( count($themes)==0 ) : echo "" ;else: foreach($themes as $key=>$vo): ?>
+                <tr>
+                    <td><?php echo $vo['theme']; ?></td>
+                    <td><?php echo $vo['name']; ?></td>
+                    <td><?php echo $vo['version']; ?></td>
+                    <td><?php echo $vo['author']; ?></td>
+                    <td><?php echo $vo['description']; ?></td>
+                    <td>
+                        <a href="<?php echo url('theme/installTheme',array('theme'=>$vo['theme'])); ?>" class="btn btn-xs btn-primary js-ajax-dialog-btn js-ajax-dialog-btn">安装</a>
+                    </td>
+                </tr>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>模板</th>
+                <th>模板名称</th>
+                <th>版本号</th>
+                <th>作者</th>
+                <th>模板描述</th>
+                <th width="120"><?php echo lang('ACTIONS'); ?></th>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+</div>
+<script src="/static/js/admin.js"></script>
 </body>
 </html>

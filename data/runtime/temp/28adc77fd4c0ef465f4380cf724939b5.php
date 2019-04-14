@@ -1,8 +1,8 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:7:{s:82:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\company.html";i:1555140548;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:80:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\bread.html";i:1554027832;s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer.html";i:1554017417;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-right.html";i:1554017331;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:7:{s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\list.html";i:1555146450;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:80:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\bread.html";i:1554027832;s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer.html";i:1554017417;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-right.html";i:1554017331;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo $page['post_title']; ?></title>
+    <title><?php echo $category['name']; ?> <?php echo $category['seo_title']; ?> <?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?></title>
     <!--head s-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="format-detection" content="telephone=no">
@@ -50,18 +50,13 @@
 </style>
     <!--head e-->
 
-    <style>
-
-
-    </style>
 </head>
 
 
 <body>
 
-    <div class="H_wrapper">
-
-        <div class="H_header">
+<div class="H_wrapper">
+    <div class="H_header">
     <a class="logowap" href="" >
         <img class="logo" src="/static/yili/images/logo.png">
     </a>
@@ -141,8 +136,7 @@
 </script>
 
 
-
-        <?php 
+    <?php 
     $subMenu = getSubNav(request()->get('categoryId'));
  ?>
 
@@ -160,66 +154,191 @@
     </p>
 </div>
 
-        <!--主体开始-->
-        <?php
-     if(isset($theme_widgets['features']) && $theme_widgets['features']['display']){
-        $widget=$theme_widgets['features'];
-     
- ?>
-
-
-            <div class="A_zjyl G_zjyl">
-                <h2><?php echo $widget['title']; ?></h2>
-                <p class="G_zjylpc"><?php echo $widget['vars']['sub_title']; ?></p>
-                <p class="G_zjylwap"><?php echo $widget['vars']['sub_title']; ?></p>
-            </div>
-
-            <div class="G_yljtpad">
-                <p><?php echo $page['post_title']; ?></p>
-            </div>
-
-
-
-            <div class="G_gsjscon">
-
-                <?php 
-                    $features = $widget['vars']['features'];
-                 if(is_array($features) || $features instanceof \think\Collection || $features instanceof \think\Paginator): if( count($features)==0 ) : echo "" ;else: foreach($features as $k=>$vo): ?>
-                    <div class="G_yljj0<?php  echo ($k%2) + 1;  ?>">
-                        <img src="/static/yili/myimg/<?php echo $vo['img']; ?>">
-                        <div class="G_yljj01b ylpz0 mCustomScrollbar _mCS_1" >
-                            <div id="mCSB_1" class="mCustomScrollBox mCS-light-2 mCSB_vertical mCSB_inside">
-                                <div id="mCSB_1_container" class="mCSB_container">
-                                    <span><b><?php echo $vo['title']; ?></b></span>
-                                    <p><?php echo $vo['content']; ?></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="G_yljj01bpad">
-                            <span><?php echo $vo['title']; ?></span>
-                            <p><?php echo $vo['content']; ?></p>
-                            <img class="opacity_yl-ys" src="/static/yili/images/opacity_yl_ys.png">
-                        </div>
-                        <img class="opacity_yl" src="/static/yili/images/opacity_yl.png">
+    <div class="Q_qyxw">
+        <span><?php echo $category['name']; ?></span>
+    </div>
+    <!--文章列表-->
+    <div class="Q_qyxwcon">
+        <ul>
+            <?php 
+                $limit = 5;
+                $articlesList = getArticlesList(['limit'=>$limit,'order'=>'post.create_time DESC','category_ids'=>$category->id]);
+                $total = getArticlescount(['category_ids'=>$category->id]);
+                $articlesCount = count($articlesList['articles']);
+             if(is_array($articlesList['articles']) || $articlesList['articles'] instanceof \think\Collection || $articlesList['articles'] instanceof \think\Paginator): $i = 0; $__LIST__ = $articlesList['articles'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+                <li>
+                    <div class="Q_qyxwimg">
+                        <a href="<?php echo cmf_url('portal/Article/index',array('id'=>$item['id'],'cid'=>$category['id'])) .'?categoryId='. request()->get('categoryId') ?>">
+                            <img src="<?php echo empty($item['thumbnail']) ? '/static/yili/images/no-img.png' : '/upload/'.$item['thumbnail']; ?>">
+                        </a>
                     </div>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
 
+                    <div class="Q_qyxwr" style="width: 1040px;">
+                        <h1>
+                            <a href="<?php echo cmf_url('portal/Article/index',array('id'=>$item['id'],'cid'=>$category['id'])) .'?categoryId='. request()->get('categoryId') ?>"><?php echo $item['post_title']; ?></a>
+                        </h1>
+                        <span><?php echo date('Y-m-d',$item['published_time']); ?> 原文出自：
+                            <a href=""><?php echo $item['post_source']; ?></a>
+                        </span>
+                        <p><?php echo $item['post_excerpt']; ?></p>
+                        <a href="<?php echo cmf_url('portal/Article/index',array('id'=>$item['id'],'cid'=>$category['id'])) .'?categoryId='. request()->get('categoryId') ?>"
+                           class="H_ldrmore0">查看详情</a>
+                    </div>
+
+                    <div class="Q_qyxwrwap">
+                        <h1>
+                            <a href="<?php echo cmf_url('portal/Article/index',array('id'=>$item['id'],'cid'=>$category['id'])) .'?categoryId='. request()->get('categoryId') ?>">
+                                <?php echo $item['post_title']; ?>
+                            </a>
+                        </h1>
+                        <span><?php echo date('yy-m-d',$item['published_time']); ?> 原文出自：
+                            <a href=""><?php echo $item['post_source']; ?></a>
+                        </span>
+                        <p><?php echo $item['post_excerpt']; ?></p>
+                        <a href="<?php echo cmf_url('portal/Article/index',array('id'=>$item['id'],'cid'=>$category['id'])) .'?categoryId='. request()->get('categoryId') ?>"
+                           class="H_ldrmore0">查看详情
+                        </a>
+                    </div>
+                </li>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+
+        </ul>
+
+        <?php if($articlesCount > 0): ?>
+            <div class="Q_qyxwmore" id="more1">
+                <i class="Q_qyxwline">&nbsp;</i>
+                <div class="Q_qyxwmorecon">
+                    <p>
+                        更多新闻<i id="nextPage" onclick="showMore(&quot;2&quot;);"></i>
+                        还有<b id="remain"><?php echo ($total - $limit < 0 ? 0 : $total - $limit); ?></b>篇
+                    </p>
+                </div>
             </div>
 
-        
-<?php
-    }
- ?>
-
-
-        <!--主体结束-->
-
+            <div class="Q_qyxwmorewap" id="more2">
+                <p class="H_ldrmore5" onclick="showMore(&quot;2&quot;);">加载更多</p>
+            </div>
+        <?php endif; ?>
 
     </div>
 
+    <script type="text/javascript">
 
-    
+        var cid = "<?php echo $category['id']; ?>";
+        var categoryId = "<?php echo request()->get('categoryId') ?>";
+
+        console.log(cid,categoryId);
+        function showMore(nextPage) {
+            $.ajax({
+                url: "<?php echo url('portal/List/getArticleList');?>",
+                type: "POST",
+                data: {
+                    categoryId: "<?php echo $category->id; ?>",
+                    pageNumber: nextPage
+                },
+                dataType: "json", //返回json格式的数据
+                async: true,
+                success: function (data) {
+
+                    //处理封面图片的路径
+                    function handleImg(imgStr){
+
+                        return imgStr == ''?'/static/yili/images/no-img.png':'/upload/'+imgStr;
+                    }
+                    if(!(data.code && data.code==1)){
+                        console.log("数据获取失败");
+                        return false;
+                    }
+
+
+                    //计算剩余文章的数量
+                    data = data.data;
+                    if(!data.page.list.length > 0){
+                        console.log("没有更多数据");
+                        return false;
+                    }
+                    //console.log(data);
+                    var calculatePage = data.page
+                    var remain = calculatePage.total - (calculatePage.pageNum-1) * calculatePage.pageSize;
+                    console.log(remain);
+                    //先遍历nextPage的数据列表，添加到more1的上面
+                    var page = data.page;
+                    var html = "";
+                    var len = page.list.length;
+                    var description = '';
+                    for (var i = 0; i < len; i++) {
+                        if (page.list[i].description == null) {
+                            var body = page.list[i].body;
+                           // description = delHtmlTag(body);
+                            description = body;
+                        }
+                        html += '<ul>';
+                        html += '<li><div class="Q_qyxwimg"><a href="/portal/Article/index/id/'
+                            + page.list[i].id + "/cid/" + cid + ".html?categoryId="+ categoryId
+                            + '"><img src="' + handleImg(page.list[i].imageUrl) + '"/></a></div>';
+                        html += '<div class="Q_qyxwr">';
+                        html += '<h1><a href="/portal/Article/index/id/'
+                            + page.list[i].id + "/cid/" + cid + ".html?categoryId="+ categoryId
+                            + '">'
+                            + page.list[i].title + '</a></h1>';
+                        html += '<span>'
+                            + page.list[i].createdAt
+                            + '&nbsp;&nbsp;原文出自：'
+                            + page.list[i].author + '</span>';
+                        html += '<p>' + description + '</p>';
+                        html += '<a href="/portal/Article/index/id/'
+                            + page.list[i].id + "/cid/" + cid + ".html?categoryId="+ categoryId
+                            + '" class="H_ldrmore0">查看详情</a>';
+                        html += '</div>';
+                        html += '<div class="Q_qyxwrwap">';
+                        html += '<h1><a href="/portal/Article/index/id/'
+                            + page.list[i].id + "/cid/" + cid + ".html?categoryId="+ categoryId
+                            + '">'
+                            + page.list[i].title + '</a></h1>';
+                        html += '<span>' + page.list[i].createdAt
+                            + '&nbsp;&nbsp;原文出自：'
+                            + page.list[i].author + '</span>';
+                        html += '<p>' + description + '</p>';
+                        html += '<a href="/portal/Article/index/id/'
+                            + page.list[i].id+ "/cid/" + cid + ".html?categoryId="+ categoryId
+                            + '" class="H_ldrmore0">查看详情</a>';
+                        html += '</div></li>';
+                    }
+                    html += '</ul>';
+
+                    $("#more1").before(html);
+                    //如果当前的页是最后一页，隐藏显示更多
+                    if (page.isLastPage) {
+                        $("#more1").hide();
+                        $("#more2").hide();
+                    } else {
+                        //如果当前的页不是最后一页，动态修改showMore的nextPage值，和剩余的篇数值
+                        $("#nextPage").attr("onclick",
+                            "showMore(" + page.nextPage + ");")
+                            .next().html(remain);
+                    }
+                },
+
+
+                error: function () {
+                    alert("error...");
+                }
+            });
+            setTimeout(function () {
+                //企业新闻
+                var qyxwwidth = $(".Q_qyxwcon ul li .Q_qyxwimg").width();
+                $(".Q_qyxwr").width(
+                    $(".Q_qyxwcon ul li").width() - qyxwwidth - 10);
+            }, 1000);
+        }
+        function delHtmlTag(str) {
+            return str.replace(/<[^>]+>/g, "");//去掉所有的html标记
+        }
+    </script>
+    <!-- 内容 结束-->
+
+</div>
+
 <div class="M_footer">
     <div class="H_footerpad F_footer0">
         <p class="H_footerp1">
@@ -380,14 +499,7 @@
 
 
 
-    <script>
-        (function($) {
-            $(window).load(function() {
-                $.mCustomScrollbar.defaults.theme = "light-2";
-                $(".ylpz0").mCustomScrollbar();
-            });
-        })(jQuery);
-    </script>
+
 </body>
 
 

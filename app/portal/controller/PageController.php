@@ -24,6 +24,7 @@ class PageController extends HomeBaseController
      */
     public function index()
     {
+
         $postService = new PostService();
         $pageId      = $this->request->param('id', 0, 'intval');
         $page        = $postService->publishedPage($pageId);

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:106:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/admin_simpleboot3/admin\theme\file_array_data_edit.html";i:1551705626;s:95:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\admin_simpleboot3\admin\theme\functions.html";i:1551705626;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\admin_simpleboot3\public\header.html";i:1551705626;s:93:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\admin_simpleboot3\admin\theme\scripts.html";i:1551705626;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:109:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/admin_simpleboot3/admin\theme\file_public_var_setting.html";i:1551705626;s:95:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\admin_simpleboot3\admin\theme\functions.html";i:1551705626;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\admin_simpleboot3\public\header.html";i:1551705626;s:93:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\admin_simpleboot3\admin\theme\scripts.html";i:1551705626;}*/ ?>
 <?php 
     if (!function_exists('_parse_vars')) {
         function _parse_vars($vars,$inputName,$level=1,$widget='',$file_id=''){
@@ -248,25 +248,37 @@
 <body>
 <div class="wrap">
     <ul class="nav nav-tabs">
-        <li><a href="<?php echo url('theme/fileArrayData',['tab'=>$tab,'var'=>$var,'file_id'=>$file_id,'widget'=>$widget]); ?>">所有数据</a></li>
-        <?php if($item_index === ''): ?>
-            <li class="active"><a>添加数据</a></li>
-            <?php else: ?>
+        <li>
+            <a href="<?php echo url('theme/fileSetting',['file_id'=>$file_id,'tab'=>'widget']); ?>">
+                组件
+            </a>
+        </li>
+        <?php if(!(empty($file['more']['vars']) || (($file['more']['vars'] instanceof \think\Collection || $file['more']['vars'] instanceof \think\Paginator ) && $file['more']['vars']->isEmpty()))): ?>
             <li>
-                <a href="<?php echo url('theme/fileArrayDataEdit',['tab'=>$tab,'var'=>$var,'file_id'=>$file_id,'widget'=>$widget]); ?>">添加数据</a>
+                <a href="<?php echo url('theme/fileSetting',['file_id'=>$file_id,'tab'=>'var']); ?>">
+                    设置
+                </a>
             </li>
-            <li class="active"><a>编辑数据</a></li>
+        <?php endif; if(!(empty($has_public_var) || (($has_public_var instanceof \think\Collection || $has_public_var instanceof \think\Paginator ) && $has_public_var->isEmpty()))): ?>
+            <li class="active">
+                <a href="<?php echo url('theme/fileSetting',['file_id'=>$file_id,'tab'=>'public_var']); ?>">
+                    全局设置
+                </a>
+            </li>
         <?php endif; ?>
-
     </ul>
-    <form method="post" class="js-ajax-form margin-top-20"
-          action="<?php echo url('theme/fileArrayDataEditPost',['tab'=>$tab,'var'=>$var,'file_id'=>$file_id,'widget'=>$widget]); ?>">
-        <?php echo _parse_vars($array_item,'item',2); ?>
-        <div class="form-group" style="display: none;">
-            <input type="hidden" name="item_index" value="<?php echo $item_index; ?>">
-            <button type="submit" class="btn btn-primary js-ajax-submit" id="submit-btn">保存</button>
+
+    <form method="post" class="js-ajax-form  margin-top-20" action="<?php echo url('theme/settingPost'); ?>">
+        <?php if(is_array($files) || $files instanceof \think\Collection || $files instanceof \think\Paginator): if( count($files)==0 ) : echo "" ;else: foreach($files as $key=>$file): if($file['id'] != $file_id): if(!(empty($file['more']['vars']) || (($file['more']['vars'] instanceof \think\Collection || $file['more']['vars'] instanceof \think\Paginator ) && $file['more']['vars']->isEmpty()))): ?>
+                    <?php echo _parse_vars($file['more']['vars'],'files['.$file['id'].'][vars]',1,'',$file['id']); else: endif; endif; endforeach; endif; else: echo "" ;endif; ?>
+        <div class="form-group text-center" style="display: none;">
+            <!--<input type="hidden" name="id" value="<?php echo $file['id']; ?>">-->
+            <button type="submit" class="btn btn-primary js-ajax-submit" id="submit-btn" data-success="successCallback">
+                <?php echo lang('SAVE'); ?>
+            </button>
         </div>
     </form>
+
 </div>
 <script src="/static/js/admin.js"></script>
 <script>
@@ -379,6 +391,41 @@
 
     }
 
+</script>
+<script>
+    function successCallback(data, statusText, xhr, $form) {
+        function _refresh() {
+            if (data.url) {
+                //返回带跳转地址
+                window.location.href = data.url;
+            } else {
+                if (data.code == 1) {
+                    //刷新当前页
+                    reloadPage(window);
+                }
+            }
+        }
+
+        noty({
+            text: data.msg,
+            type: 'success',
+            layout: 'topCenter',
+            modal: true,
+            // animation: {
+            //     open: 'animated bounceInDown', // Animate.css class names
+            //     close: 'animated bounceOutUp', // Animate.css class names
+            // },
+            timeout: 800,
+            callback: {
+                afterClose: function () {
+                    if (parent.afterSaveSetting) {
+                        parent.afterSaveSetting();
+                    }
+                    _refresh();
+                }
+            }
+        });
+    }
 </script>
 </body>
 </html>

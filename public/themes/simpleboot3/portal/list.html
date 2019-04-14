@@ -72,8 +72,8 @@
                 <i class="Q_qyxwline">&nbsp;</i>
                 <div class="Q_qyxwmorecon">
                     <p>
-                        更多新闻<i id="nextPage" onclick="showMore(&quot;2&quot;);"></i>还有
-                        <b id="remain"><php>echo ($total - $limit);</php></b> 篇
+                        更多新闻<i id="nextPage" onclick="showMore(&quot;2&quot;);"></i>
+                        还有<b id="remain"><php>echo ($total - $limit < 0 ? 0 : $total - $limit);</php></b>篇
                     </p>
                 </div>
             </div>
@@ -109,12 +109,17 @@
                         return imgStr == ''?'__STATIC__/yili/images/no-img.png':'__ROOT__/upload/'+imgStr;
                     }
                     if(!(data.code && data.code==1)){
-                        console.log(数据获取失败);
+                        console.log("数据获取失败");
                         return false;
                     }
 
+
                     //计算剩余文章的数量
                     data = data.data;
+                    if(!data.page.list.length > 0){
+                        console.log("没有更多数据");
+                        return false;
+                    }
                     //console.log(data);
                     var calculatePage = data.page
                     var remain = calculatePage.total - (calculatePage.pageNum-1) * calculatePage.pageSize;

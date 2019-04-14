@@ -1,6 +1,6 @@
 {
     "name": "单页面",
-    "action": "portal/company/index",
+    "action": "portal/Page/index",
     "description": "公司介绍",
     "order": 10.0,
     "more": {

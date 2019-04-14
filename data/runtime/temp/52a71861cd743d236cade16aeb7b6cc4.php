@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:7:{s:82:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\company.html";i:1555140548;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:80:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\bread.html";i:1554027832;s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer.html";i:1554017417;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-right.html";i:1554017331;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:7:{s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\leader.html";i:1555143653;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:80:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\bread.html";i:1554027832;s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer.html";i:1554017417;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-right.html";i:1554017331;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -162,51 +162,29 @@
 
         <!--主体开始-->
         <?php
-     if(isset($theme_widgets['features']) && $theme_widgets['features']['display']){
-        $widget=$theme_widgets['features'];
+     if(isset($theme_widgets['leader']) && $theme_widgets['leader']['display']){
+        $widget=$theme_widgets['leader'];
      
  ?>
 
-
-            <div class="A_zjyl G_zjyl">
-                <h2><?php echo $widget['title']; ?></h2>
-                <p class="G_zjylpc"><?php echo $widget['vars']['sub_title']; ?></p>
-                <p class="G_zjylwap"><?php echo $widget['vars']['sub_title']; ?></p>
-            </div>
-
-            <div class="G_yljtpad">
-                <p><?php echo $page['post_title']; ?></p>
-            </div>
-
-
-
-            <div class="G_gsjscon">
-
-                <?php 
-                    $features = $widget['vars']['features'];
-                 if(is_array($features) || $features instanceof \think\Collection || $features instanceof \think\Paginator): if( count($features)==0 ) : echo "" ;else: foreach($features as $k=>$vo): ?>
-                    <div class="G_yljj0<?php  echo ($k%2) + 1;  ?>">
-                        <img src="/static/yili/myimg/<?php echo $vo['img']; ?>">
-                        <div class="G_yljj01b ylpz0 mCustomScrollbar _mCS_1" >
-                            <div id="mCSB_1" class="mCustomScrollBox mCS-light-2 mCSB_vertical mCSB_inside">
-                                <div id="mCSB_1_container" class="mCSB_container">
-                                    <span><b><?php echo $vo['title']; ?></b></span>
-                                    <p><?php echo $vo['content']; ?></p>
+            <div class="Z_ldrjs">
+                <?php  $leader = $widget['vars']['leader'];  if(is_array($leader) || $leader instanceof \think\Collection || $leader instanceof \think\Paginator): if( count($leader)==0 ) : echo "" ;else: foreach($leader as $k=>$vo): ?>
+                    <div class="Z_ldrjs01">
+                        <img class="Z_ldrjspc" src="/static/yili/myimg/<?php echo $vo['img']; ?>">
+                        <div class="Z_ldrjsxq Z_ldrjsxq01 gqlist0 mCustomScrollbar _mCS_1">
+                            <div class="mCustomScrollBox mCS-light-2 mCSB_vertical mCSB_inside">
+                                <div class="mCSB_container" >
+                                    <h2><?php echo $vo['title']; ?></h2>
+                                    <?php echo $vo['content']; ?>
                                 </div>
+
                             </div>
                         </div>
-
-                        <div class="G_yljj01bpad">
-                            <span><?php echo $vo['title']; ?></span>
-                            <p><?php echo $vo['content']; ?></p>
-                            <img class="opacity_yl-ys" src="/static/yili/images/opacity_yl_ys.png">
-                        </div>
-                        <img class="opacity_yl" src="/static/yili/images/opacity_yl.png">
+                        <img class="opacity_yl" src="/static/yili/images/opacity_yl_ys.png">
                     </div>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
 
             </div>
-
         
 <?php
     }
@@ -381,10 +359,10 @@
 
 
     <script>
-        (function($) {
-            $(window).load(function() {
-                $.mCustomScrollbar.defaults.theme = "light-2";
-                $(".ylpz0").mCustomScrollbar();
+        (function ($) {
+            $(window).load(function () {
+                $.mCustomScrollbar.defaults.theme = "light-2"; //set "light-2" as the default theme
+                $(".gqlist0").mCustomScrollbar();
             });
         })(jQuery);
     </script>

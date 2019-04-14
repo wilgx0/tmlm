@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$page.post_title}</title>
+    <!--head s-->
+    <include file="public@head"/>
+    <!--head e-->
+
+    <style>
+
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="H_wrapper">
+
+        <include file="public@nav"/>
+
+        <include file="public@bread"/>
+
+        <!--主体开始-->
+        <widget name="leader">
+            <div class="Z_ldrjs">
+                <php> $leader = $widget['vars']['leader']; </php>
+
+                <foreach name="leader" item="vo" key="k">
+                    <div class="Z_ldrjs01">
+                        <img class="Z_ldrjspc" src="__STATIC__/yili/myimg/{$vo.img}">
+                        <div class="Z_ldrjsxq Z_ldrjsxq01 gqlist0 mCustomScrollbar _mCS_1">
+                            <div class="mCustomScrollBox mCS-light-2 mCSB_vertical mCSB_inside">
+                                <div class="mCSB_container" >
+                                    <h2>{$vo.title}</h2>
+                                    {$vo.content}
+                                </div>
+
+                            </div>
+                        </div>
+                        <img class="opacity_yl" src="__STATIC__/yili/images/opacity_yl_ys.png">
+                    </div>
+                </foreach>
+
+            </div>
+        </widget>
+        <!--主体结束-->
+
+
+    </div>
+
+
+    <include file="public@footer"/>
+    <script>
+        (function ($) {
+            $(window).load(function () {
+                $.mCustomScrollbar.defaults.theme = "light-2"; //set "light-2" as the default theme
+                $(".gqlist0").mCustomScrollbar();
+            });
+        })(jQuery);
+    </script>
+</body>
+
+
+</html>
