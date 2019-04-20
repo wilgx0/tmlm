@@ -241,7 +241,7 @@
                 </table>
 
                 <?php 
-    \think\Hook::listen('portal_admin_article_edit_view_main',$temp5cb1a7d3683c6,null,false);
+    \think\Hook::listen('portal_admin_article_edit_view_main',$temp5cb87f1e3b341,null,false);
  ?>
             </div>
             <div class="col-md-3">
@@ -344,7 +344,7 @@
                 </table>
 
                 <?php 
-    \think\Hook::listen('portal_admin_article_edit_view_right_sidebar',$temp5cb1a7d3683c6,null,false);
+    \think\Hook::listen('portal_admin_article_edit_view_right_sidebar',$temp5cb87f1e3b341,null,false);
  ?>
             </div>
         </div>

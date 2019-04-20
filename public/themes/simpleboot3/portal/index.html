@@ -8,7 +8,7 @@
 	<!--head e-->
 	<link type="text/css" rel="stylesheet" href="__STATIC__/yili/css/swiper-3.4.2.min.css">
 	<script src="__STATIC__/yili/js/swiper-3.4.2.min.js"></script>
-
+	<script src="__STATIC__/yili/js/template-web.js"></script>
 	<style>
 		.H_wrapper{
 			min-width: 100%;
@@ -16,14 +16,30 @@
 			position:relative;
 		}
 
-		.swiper-container {
+		.swiper-container-v {
 			width: 100%;
 		}
 
-		.swiper-container img{
+		.swiper-container-v img{
 			height:100%;
 			width:100%;
 		}
+
+		.swiper-container-h{
+			margin:0 !important;
+			height:100%;
+		}
+
+		.nest-slide{
+			height:100% !important;
+			width:100% !important;
+		}
+
+		.nest-slide img{
+			height:100%;
+			width:100%;
+		}
+
 
 		.slide-next{
 			cursor:pointer;
@@ -50,6 +66,32 @@
 			from{bottom:20px;}
 			to{bottom:10px;}
 		}
+
+
+		.tpl-swiper1{
+            color: #737373;
+            font-size:16px;
+		}
+
+        .tpl-swiper1 .title{
+            font-size:44px;
+            position:absolute;
+			top:0;
+            left: 10%;
+			opacity:0;
+        }
+
+        .tpl-swiper1 .content{
+            margin:10px 0;
+            line-height: 28px;
+            position:absolute;
+			top:0;
+            left: 10%;
+			opacity:0;
+        }
+
+
+
 	</style>
 </head>
 
@@ -64,26 +106,50 @@
 			<!--幻灯片 s-->
 			<php>
 				$slide1 = [];
+				$slide2 = [];
 				if(request()->isMobile()){	   //mobile
 					$slide1 = getSlide(2);
+				    $slide2 = getSlide(4);		//嵌套
 				} else {                       //pc
 					$slide1 = getSlide(1);
+					$slide2 = getSlide(3);	//嵌套
 				}
 			</php>
-			<div class="swiper-container" >
+			<div class="swiper-container swiper-container-v" >
 				<div class="swiper-wrapper">
 
+					<div class="swiper-slide">
+
+						<div class="swiper-container swiper-container-h">
+							<div class="swiper-wrapper">
+
+								<volist name="$slide2" id="vo" key="k">
+									<div class="swiper-slide nest-slide">
+										<a href="{$vo.url}">
+											<img src="{:cmf_get_image_url($vo.image)}">
+										</a>
+									</div>
+								</volist>
+
+							</div>
+
+						</div>
+
+					</div>
+
 					<volist name="$slide1" id="vo" key="k">
-						<div class="swiper-slide">
+						<div class="swiper-slide"  data-title="{$vo.description}" data-content="{$vo.content}">
 							<a href="{$vo.url}">
 								<img class="slide-img swiper-lazy" data-src="{:cmf_get_image_url($vo.image)}" alt="">
 							</a>
 							<div class="swiper-lazy-preloader"></div>
 						</div>
 					</volist>
+
 					<div class="swiper-slide">
 						<include file="public@footer-bottom"/>
 					</div>
+
 				</div>
 
 			</div>
@@ -96,6 +162,13 @@
 		</div>
 	</div>
 
+	<script id="tpl-swiper1" type="text/html">
+		<div class="tpl-swiper1">
+			<h1 class="title">{{title}}</h1>
+			<div class="content">{{@ content}}</div>
+		</div>
+	</script>
+
 
 	<script>
 
@@ -105,10 +178,13 @@
             var topHeigth = $('.H_header').height();			//头部高度
 			var bottomHeight = $('.M_footer').height();			//底部高度
 			//设置幻灯片容器高度
-			$('.swiper-container').css({'height':winHeight - topHeigth,'margin-top':topHeigth});
-			$('.swiper-container .swiper-slide:last-child').height(bottomHeight);
+			$('.swiper-container-v').css({'height':winHeight - topHeigth,'margin-top':topHeigth});
+			$('.swiper-container-v .swiper-slide:last-child').height(bottomHeight);
 
-			var mySwiper= new Swiper ('.swiper-container', {
+
+
+			//幻灯片
+			var mySwiper= new Swiper ('.swiper-container-v', {
 				direction: 'vertical',
                 mousewheelControl : true,
                 slidesPerView : 'auto',
@@ -117,8 +193,51 @@
                     if(swiper.progress==1){         //对于swiper的progress属性，活动的slide在最左（上）边时为0，活动的slide在最右（下）边时为1，其他情况平分。
                         swiper.activeIndex = swiper.slides.length - 1
                     }
+                },
+                onSlideChangeEnd: function(swiper){
+
+					var currentItem = swiper.slides[swiper.activeIndex],
+                        title = $(currentItem).data('title'),
+					    content = $(currentItem).data('content');
+
+					//清除动画样式
+					$.each(swiper.slides,function(i,e){
+					    if($(e).find('.tpl-swiper1').length > 0){
+							$(e).find('.tpl-swiper1 .title').css({top:'0',opacity:'0'});
+							$(e).find('.tpl-swiper1 .content').css({top:'0',opacity:'0'});
+						}
+					});
+
+					if($(currentItem).find('.tpl-swiper1').length > 0){
+                        Animate1();
+                    } else {
+                        if(title && content){
+                            var html = template('tpl-swiper1',{
+                                title:title,
+                                content:content,
+                            });
+                            currentItem.appendChild($(html)[0]);
+                            Animate1();
+                        }
+                    }
+
+                    function Animate1(){
+                        $(currentItem).find('.tpl-swiper1 .title').animate({top:'8%',opacity:'1'},"slow",null,function(){
+                            $(currentItem).find('.tpl-swiper1 .content').animate({top:'15%',opacity:'1'},"slow");
+                        });
+					}
+
                 }
 			});
+
+
+			//嵌套
+            var swiperV = new Swiper('.swiper-container-h', {
+                effect : 'fade',
+                loop : true,
+                autoplay : 2000
+            });
+
 
 			//设置底部的显Z_zjyltit示
             $(".slide-next").click(function(){

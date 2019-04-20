@@ -3,7 +3,7 @@ $(function(){
 	var logoH='';
 	logoH +='<li>';
 	logoH	+='<a href="javascript:;" id="logo">';
-	logoH	+='<img class="logo" src="STATIC/yili/images/logo.png" />';
+	logoH	+='<img class="logo" src="/static/yili/images/logo.png" />';
 	logoH	+='</a>';
 	logoH	+='</li>';
 	$('#H_menulist').children('li').eq(3).after(logoH);

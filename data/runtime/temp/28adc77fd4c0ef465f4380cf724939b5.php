@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:7:{s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\list.html";i:1555146450;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:80:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\bread.html";i:1554027832;s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer.html";i:1554017417;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1554214175;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-right.html";i:1554017331;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:7:{s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public/themes/simpleboot3/portal\list.html";i:1555146450;s:79:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\head.html";i:1552830390;s:78:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\nav.html";i:1554015425;s:80:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\bread.html";i:1554027832;s:81:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer.html";i:1554017417;s:88:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-bottom.html";i:1555204686;s:87:"D:\phpStudy\PHPTutorial\WWW\thinkcmf\public\themes\simpleboot3\public\footer-right.html";i:1554017331;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -340,6 +340,7 @@
 </div>
 
 <div class="M_footer">
+
     <div class="H_footerpad F_footer0">
         <p class="H_footerp1">
             <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=1">关于我们</a>
@@ -356,113 +357,155 @@
             <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=3">品牌产品</a>
             <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=7">服务中心</a>
         </p>
-        <span>© 2010 YILI.COM INC. ALLRIGHTS RESERVED. 内蒙古伊利实业集团股份有限公司版权所有 蒙ICP备09003253号-2</span>
+        <span>
+            © 2010 YILI.COM INC. ALLRIGHTS RESERVED. 内蒙古伊利实业集团股份有限公司版权所有 蒙ICP备09003253号-2
+        </span>
     </div>
+
     <div class="H_footer F_footer0">
         <div class="H_footercon">
             <ul>
-                <li><span><a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=1" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A12_底部一级导航&#39;, &#39;C01A12L01_所有页面_底部一级导航_关于我们按钮&#39;);">关于我们</a></span>
-                    <!--/////////////-->
+                <li>
+                    <span>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=1">关于我们</a>
+                    </span>
+
                     <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=29" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A13_底部关于我们二级导航&#39;, &#39;C01A13L01_所有页面_底部关于我们二级导航_走进伊利按钮&#39;);">走进伊利</a>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=29">走进伊利</a>
+                    </p>
+
+                    <p>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=9">伊利品质</a>
                     </p>
                     <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=9" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A13_底部关于我们二级导航&#39;, &#39;C01A13L02_所有页面_底部关于我们二级导航_伊利品质按钮&#39;);">伊利品质</a>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=36">企业文化</a>
                     </p>
                     <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=36" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A13_底部关于我们二级导航&#39;, &#39;C01A13L03_所有页面_底部关于我们二级导航_企业文化按钮&#39;);">企业文化</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=39" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A13_底部关于我们二级导航&#39;, &#39;C01A13L04_所有页面_底部关于我们二级导航_企业公民按钮&#39;);">企业公民</a>
-                    </p>
-                </li>
-                <li><span><a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=2" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A12_底部一级导航&#39;, &#39;C01A12L02_所有页面_底部一级导航_新闻中心按钮&#39;);">新闻中心</a></span>
-                    <!--/////////////-->
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=14" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A14_底部新闻中心二级导航&#39;, &#39;C01A14L01_所有页面_底部新闻中心二级导航_企业新闻按钮&#39;);">企业新闻</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/videos/list?categoryId=15" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A14_底部新闻中心二级导航&#39;, &#39;C01A14L02_所有页面_底部新闻中心二级导航_媒体视频按钮&#39;);">媒体视频</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=16" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A14_底部新闻中心二级导航&#39;, &#39;C01A14L03_所有页面_底部新闻中心二级导航_精彩合作按钮&#39;);">精彩合作</a>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=39">企业公民</a>
                     </p>
                 </li>
-                <li><span><a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=3" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A12_底部一级导航&#39;, &#39;C01A12L03_所有页面_底部一级导航_品牌产品按钮&#39;);">品牌产品</a></span>
-                    <!--/////////////-->
+
+                <li>
+                    <span>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=2">新闻中心</a>
+                    </span>
+
                     <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=23" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A15_底部品牌产品二级导航&#39;, &#39;C01A15L01_所有页面_底部品牌产品二级导航_品牌理念按钮&#39;);">品牌理念</a>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=14">企业新闻</a>
                     </p>
                     <p>
-                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=24" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A15_底部品牌产品二级导航&#39;, &#39;C01A15L02_所有页面_底部品牌产品二级导航_液态奶按钮&#39;);">液态奶</a>
+                        <a href="http://www.yili.com/cms/rest/reception/videos/list?categoryId=15">媒体视频</a>
                     </p>
                     <p>
-                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=26" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A15_底部品牌产品二级导航&#39;, &#39;C01A15L03_所有页面_底部品牌产品二级导航_奶粉按钮&#39;);">奶粉</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=27" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A15_底部品牌产品二级导航&#39;, &#39;C01A15L04_所有页面_底部品牌产品二级导航_酸奶按钮&#39;);">酸奶</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=25" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A15_底部品牌产品二级导航&#39;, &#39;C01A15L05_所有页面_底部品牌产品二级导航_冷饮按钮&#39;);">冷饮</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=900" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A15_底部品牌产品二级导航&#39;, &#39;C01A15L06_所有页面_底部品牌产品二级导航_奶酪按钮&#39;);">奶酪</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=28" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A15_底部品牌产品二级导航&#39;, &#39;C01A15L07_所有页面_底部品牌产品二级导航_乳制品的营养按钮&#39;);">乳制品的营养</a>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=16">精彩合作</a>
                     </p>
                 </li>
-                <li><span><a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=4" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A12_底部一级导航&#39;, &#39;C01A12L04_所有页面_底部一级导航_伊利创新按钮&#39;);">伊利创新</a></span>
-                    <!--/////////////-->
+                <li>
+                    <span>
+                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=3">品牌产品</a>
+                    </span>
+
                     <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=13" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A16_底部伊利创新二级导航&#39;, &#39;C01A16L01_所有页面_底部伊利创新二级导航_研发创新按钮&#39;);">研发创新</a>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=23">品牌理念</a>
+                    </p>
+                    <p>
+                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=24">液态奶</a>
+                    </p>
+                    <p>
+                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=26">奶粉</a>
+                    </p>
+                    <p>
+                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=27">酸奶</a>
+                    </p>
+                    <p>
+                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=25">冷饮</a>
+                    </p>
+                    <p>
+                        <a href="http://www.yili.com/cms/rest/reception/products/list?categoryId=900">奶酪</a>
+                    </p>
+                    <p>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=28">乳制品的营养</a>
                     </p>
                 </li>
-                <li><span><a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=5" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A12_底部一级导航&#39;, &#39;C01A12L05_所有页面_底部一级导航_投资者关系按钮&#39;);">投资者关系</a></span>
-                    <!--/////////////-->
+                <li>
+                    <span>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=4">伊利创新</a>
+                    </span>
+
                     <p>
-                        <a href="http://www.yili.com/cms/rest/reception/files/list?categoryId=101" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A17_底部投资者关系二级导航&#39;, &#39;C01A17L01_所有页面_底部投资者关系二级导航_公司公告按钮&#39;);">公司公告</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/files/list?categoryId=102" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A17_底部投资者关系二级导航&#39;, &#39;C01A17L02_所有页面_底部投资者关系二级导航_公司治理按钮&#39;);">公司治理</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=103" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A17_底部投资者关系二级导航&#39;, &#39;C01A17L03_所有页面_底部投资者关系二级导航_公司基本信息按钮&#39;);">公司基本信息</a>
-                    </p>
-                    <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=108" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A17_底部投资者关系二级导航&#39;, &#39;C01A17L04_所有页面_底部投资者关系二级导航_投资者服务按钮&#39;);">投资者服务</a>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=13">研发创新</a>
                     </p>
                 </li>
-                <li><span><a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=6" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A12_底部一级导航&#39;, &#39;C01A12L06_所有页面_底部一级导航_加入伊利按钮&#39;);">加入伊利</a></span>
-                    <!--/////////////-->
+                <li>
+                    <span>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=5">投资者关系</a>
+                    </span>
+
                     <p>
-                        <a href="http://yili.hotjob.cn/wt/yili/web/index/social" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A18_底部加入伊利二级导航&#39;, &#39;C01A18L01_所有页面_底部加入伊利二级导航_社会招聘按钮&#39;);">社会招聘</a>
+                        <a href="http://www.yili.com/cms/rest/reception/files/list?categoryId=101">公司公告</a>
                     </p>
+
                     <p>
-                        <a href="http://yili.hotjob.cn/wt/yili/web/index/campus" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A18_底部加入伊利二级导航&#39;, &#39;C01A18L02_所有页面_底部加入伊利二级导航_校园招聘按钮&#39;);">校园招聘</a>
+                        <a href="http://www.yili.com/cms/rest/reception/files/list?categoryId=102">公司治理</a>
                     </p>
+
                     <p>
-                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=34" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A18_底部加入伊利二级导航&#39;, &#39;C01A18L03_所有页面_底部加入伊利二级导航_伊人风采按钮&#39;);">伊人风采</a>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=103">公司基本信息</a>
+                    </p>
+
+                    <p>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=108">投资者服务</a>
+                    </p>
+
+                </li>
+                <li>
+                    <span>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=6">加入伊利</a>
+                    </span>
+
+                    <p>
+                        <a href="http://yili.hotjob.cn/wt/yili/web/index/social" target="_blank">社会招聘</a>
+                    </p>
+
+                    <p>
+                        <a href="http://yili.hotjob.cn/wt/yili/web/index/campus" target="_blank">校园招聘</a>
+                    </p>
+
+                    <p>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=34">伊人风采</a>
                     </p>
                 </li>
-                <li><span><a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=7" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A12_底部一级导航&#39;, &#39;C01A12L07_所有页面_底部一级导航_服务中心按钮&#39;);">服务中心</a></span>
-                    <!--/////////////-->
+                <li>
+
+                    <span>
+                        <a href="http://www.yili.com/cms/rest/reception/articles/list?categoryId=7">服务中心</a>
+                    </span>
+
+
                 </li>
             </ul>
-            <!---->
+
             <div class="H0_bottom">
+
                 <div class="H0_bottomerweim">
                     <img src="/static/yili/images/sy011.png">
                 </div>
-                <a href="http://weibo.com/u/5236823068?is_hot=1" target="_blank" class="H0_csina" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A19_底部社交媒体按钮&#39;, &#39;C01A19L02_所有页面_底部新浪微博按钮_新浪微博&#39;);"><img
-                        src="/static/yili/images/icon039.png"></a> <a href="javascript:;" class="H0_cwechat" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;C01_所有页面&#39;, &#39;C01A19_底部社交媒体按钮&#39;, &#39;C01A19L01_所有页面_底部社交媒体按钮_微信&#39;);"><img
-                    src="/static/yili/images/icon038.png"></a>
+
+                <a href="http://weibo.com/u/5236823068?is_hot=1" target="_blank" class="H0_csina">
+                    <img src="/static/yili/images/icon039.png">
+                </a>
+
+                <a href="javascript:;" class="H0_cwechat">
+                    <img src="/static/yili/images/icon038.png">
+                </a>
+
             </div>
         </div>
+
         <div class="H_footerbot">
             <div class="H_footerbotcon">
                 <p>
-                    <a href="" ></a>
+                    <a href=""></a>
                     <span>
                         <?php if(!(empty($site_info['site_icp']) || (($site_info['site_icp'] instanceof \think\Collection || $site_info['site_icp'] instanceof \think\Paginator ) && $site_info['site_icp']->isEmpty()))): ?>
                             <a href="http://www.miitbeian.gov.cn/" target="_blank"><?php echo $site_info['site_icp']; ?></a>
