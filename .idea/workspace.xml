@@ -1,58 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51697956-6c1e-4ccf-864c-3eaae9cd4284" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/runtime/cache/1a/64788d489a00f94589600c5d122b0e.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/runtime/cache/39/2d803011213216a5364ca1121ea1d4.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/runtime/cache/c3/0b008a754ac7f1eeef085057ee3106.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/runtime/log/201904/14.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/runtime/temp/5ba9bb6488efe7c34db9836be9fe2fc5.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/runtime/temp/d20dff6e2d3e08839af2eb3443900493.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/runtime/temp/dd4806fa77d78821cad6ddeafe1ce0bb.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/runtime/temp/e34587fe68952eef8b4f9d3068097547.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/portal/controller/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/portal/controller/ListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/cache/4f/15051e8f5a9ef623343d2fec9ce650.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/cache/ec/8160f91031881569e6be429979a4a4.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/runtime/cache/ec/8160f91031881569e6be429979a4a4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/011919fd544dc627bd3ce736fcaf88f6.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/03e015161fc424edcaa9e64c5049df24.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/042fbebc7b6576d0d1ca0278723f8d2a.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/1f01b6e8713a962aeae21e01acd4af82.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/28adc77fd4c0ef465f4380cf724939b5.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/runtime/temp/28adc77fd4c0ef465f4380cf724939b5.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/32973599ae63d20018eb7a6db8bb7942.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/343602048826a8a76e9b50dfea6dd8d7.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/38dae03cd72338fba867b2660324b4a6.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/runtime/temp/38dae03cd72338fba867b2660324b4a6.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/3b76b132956d01e686e96253ea13e24b.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/3e30e7e02a24e018b45d0767801ce9b8.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/42fed74fed8deb6d4777e35bc250310c.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/runtime/temp/42fed74fed8deb6d4777e35bc250310c.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/4557f4cc489a0971ae1bd17fc14c7165.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/48008e4904131e7b423d03e61066311e.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/488c4356a8f1ee9b29cadefcaea83d82.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/4ccc0900cb3c97a8a005f7f62f41e351.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/4cde8c4012f5d1d2a913cdce8aad584f.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/4dcc31257378125e3acdb6d4b8ea596b.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/runtime/temp/4dcc31257378125e3acdb6d4b8ea596b.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/52a71861cd743d236cade16aeb7b6cc4.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/5431e04e7de096109b4844a2c64d61ff.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/54987ec78109a9ed3de852c81f87ff37.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/565b41a27d5acd30a28257455ad08e4d.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/5a8cdca1f637777b738443ee1a2c2d61.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/692ce1b01e0af0acb1406486725422c7.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/af895c719cb11735c54600421b44d84b.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/b93e55f19995181ca3a8bd64ea6f9d0c.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/cfe38eb86b1d0e997282817cda4a0fda.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/d024a4b3f66ad4da1ad16833902f895a.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/da356808fc6769a6867b9dcd23ee7128.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/e3dc7c49b1cd990a25cd0826153ba607.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/runtime/temp/e3dc7c49b1cd990a25cd0826153ba607.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/e40913558e6ee68b262f365e11a03413.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/ed4a754c332a27de6aae10a33f9c2d4d.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/runtime/temp/ffc0cbff831e98e713f71862939e54c9.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/yili/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/yili/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/yili/images/sy0900.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/yili/images/sy0900.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/yili/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/yili/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/themes/simpleboot3/portal/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/themes/simpleboot3/portal/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/themes/simpleboot3/portal/leader.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/themes/simpleboot3/portal/leader.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/themes/simpleboot3/public/footer-bottom.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/themes/simpleboot3/public/footer-bottom.html" afterDir="false" />
-    </list>
+    <list default="true" id="51697956-6c1e-4ccf-864c-3eaae9cd4284" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +62,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="27" />
-          <entry key="html" value="9143" />
+          <entry key="html" value="9156" />
           <entry key="js" value="30" />
           <entry key="json" value="141" />
           <entry key="php" value="2900" />
@@ -122,7 +71,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="27" />
-          <entry key="HTML" value="9143" />
+          <entry key="HTML" value="9156" />
           <entry key="JSON" value="141" />
           <entry key="JavaScript" value="30" />
           <entry key="PHP" value="2900" />
@@ -138,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/themes/simpleboot3/public/footer-bottom.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="572">
+              <caret line="26" column="57" lean-forward="true" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -223,7 +172,6 @@
         <option value="$PROJECT_DIR$/public/themes/simpleboot3/portal/leader.html" />
         <option value="$PROJECT_DIR$/public/themes/simpleboot3/portal/leader.json" />
         <option value="$PROJECT_DIR$/public/themes/simpleboot3/portal/list.html" />
-        <option value="$PROJECT_DIR$/public/themes/simpleboot3/public/footer-bottom.html" />
         <option value="$PROJECT_DIR$/public/themes/simpleboot3/portal/index.html" />
         <option value="$PROJECT_DIR$/public/static/yili/js/common.js" />
         <option value="$PROJECT_DIR$/public/themes/simpleboot3/portal/zp_article.html" />
@@ -231,6 +179,7 @@
         <option value="$PROJECT_DIR$/public/themes/simpleboot3/portal/zp_list.json" />
         <option value="$PROJECT_DIR$/app/portal/controller/ListController.php" />
         <option value="$PROJECT_DIR$/public/themes/simpleboot3/portal/zp_list.html" />
+        <option value="$PROJECT_DIR$/public/themes/simpleboot3/public/footer-bottom.html" />
       </list>
     </option>
   </component>
@@ -272,8 +221,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="199" />
-    <option name="y" value="130" />
+    <option name="x" value="505" />
+    <option name="y" value="113" />
     <option name="width" value="1576" />
     <option name="height" value="924" />
   </component>
@@ -413,18 +362,17 @@
       <workItem from="1555421418455" duration="2457000" />
       <workItem from="1555507687162" duration="8096000" />
       <workItem from="1555594342824" duration="5192000" />
-      <workItem from="1555747863148" duration="3312000" />
+      <workItem from="1555747863148" duration="4065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183401000" />
+    <option name="totallyTimeSpent" value="184154000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="644" y="108" width="1576" height="924" extended-state="0" />
-    <editor active="true" />
+    <frame x="206" y="163" width="1576" height="924" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8600478" weight="0.23087071" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8600478" visible="true" weight="0.23087071" />
       <window_info id="Structure" order="1" sideWeight="0.13842173" side_tool="true" weight="0.15064102" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.13995215" side_tool="true" weight="0.136419" />
@@ -768,8 +716,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/themes/simpleboot3/public/footer-bottom.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        <state relative-caret-position="572">
+          <caret line="26" column="57" lean-forward="true" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$category.name} {$category.seo_title} {$site_info.site_name|default=''}</title>
+    <!--head s-->
+    <include file="public@head"/>
+    <!--head e-->
+
+    <script src="__STATIC__/yili/js/template-web.js"></script>
+    <script src="__STATIC__/yili/js/moment-with-locales.min.js"></script>
+    <script>
+        moment().locale('zh-cn');
+
+        var myTool = {
+            dateFormat:function(timestamp,format = 'YYYY-MM-DD'){
+                return moment.unix(timestamp).format(format);
+            }
+        }
+
+        template.defaults.imports.dateFormat = myTool.dateFormat;
+    </script>
+</head>
+
+
+<body>
+
+<div class="H_wrapper">
+    <include file="public@nav"/>
+
+    <include file="public@bread"/>
+
+
+    <div class="Z_zxggtit"><span>{$category.name}</span></div>
+    <!--二级导航结束-->
+    <!-- 内容 开始-->
+    <div class="Z_zxgglist">
+        <ul id="articles_list">
+
+        </ul>
+    </div>
+
+    <div id="articles_page" style="display: none;">
+        <div class="Q_qyxwmore" id="more1">
+            <i class="Q_qyxwline">&nbsp;</i>
+            <div class="Q_qyxwmorecon">
+                <p>
+                    更多新闻
+                    <i class="nextPage"></i>
+                    还有<b id="remain">0</b>篇
+                </p>
+            </div>
+        </div>
+
+        <div class="Q_qyxwmorewap" id="more2">
+            <p class="H_ldrmore5 nextPage" >加载更多</p>
+        </div>
+    </div>
+
+</div>
+<include file="public@footer"/>
+
+
+
+
+<script id="tpl-articles-item" type="text/html">
+    <% for(var i = 0; i < list.length; i++){ %>
+    <li>
+        <span><%= dateFormat(list[i]['createdAt']) %></span>
+
+        <a href=" <%= list[i]['accessUrl'] %>">
+            <%= list[i]['title'] %>
+        </a>
+    </li>
+    <% } %>
+</script>
+
+
+
+
+
+<script>
+
+    $(function(){
+        var pageNumber = 1;
+        var isLastPage = false;
+
+        var navId = "<php>echo request()->get('categoryId')</php>";
+        function loadingPage(){
+            if(isLastPage){
+                return false;
+            }
+            $.ajax({
+                url: "<?php echo url('portal/List/getArticleList');?>",
+                type: "POST",
+                data: {
+                    categoryId: "{$category->id}",
+                    pageNumber: pageNumber++,
+                    pageSize:2,
+                    navid: navId
+                },
+                success:function(res){
+                    if(res.code == 1){
+                        var pageList = res.data.page;
+                        if(pageList.list.length > 0 ){
+                            $('#articles_page').show();
+                            $('#articles_list').append(template('tpl-articles-item',pageList));
+                            isLastPage =  pageList.isLastPage;
+                        }
+                    } else {
+                        alert('返回的数据错误');
+                    }
+                },
+                error:function(err){
+                    alert('服务器错误');
+                }
+            })
+
+            return false;
+        }
+
+        loadingPage()
+
+
+        $('.nextPage').click(loadingPage);
+    })
+
+
+</script>
+</body>
+
+
+</html>
